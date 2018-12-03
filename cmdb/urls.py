@@ -17,15 +17,13 @@ import captcha
 from django.contrib import admin
 from django.conf.urls import include
 from django.urls import path,include
-#from login import views
+from login import views as loginviews
 from assets import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('assets/', include('assets.urls')),
-    #path('index/', views.index),
-    #path('login/', views.login),
-    #path('register/', views.register),
-    #path('logout/', views.logout),
-    #path('captcha/', include('captcha.urls'))
+    path('login/', loginviews.login,name='login'),
+    path('logout/', loginviews.logout),
+    path('captcha/', include('captcha.urls'))
 ]
