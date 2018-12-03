@@ -6,11 +6,13 @@ from . import models
 from . import asset_handler
 # Create your views here.
 from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request):
     assets = models.Asset.objects.all()
-    return render(request, 'assets/index.html', locals())
+    return render(request, 'assets/index.html',locals())
 
 
 def dashboard(request):
